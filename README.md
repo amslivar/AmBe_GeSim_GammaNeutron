@@ -14,7 +14,7 @@ source /usr/local/geant4.10.04.p02/share/Geant4-10.4.2/geant4make/geant4make.sh
 
 3. Go to the GeSim_AmBe_efficiency folder and run "cmake .":
 4. Compile with "make -f Makefile"
-5. Before starting the simulations, run "export AllowForHeavyElements = 1"
+5. Before starting the simulations, run "export AllowForHeavyElements=1"
 6. The simulations can be executed by running "./GeSim AmBe.mac"
     - depending on the geometry you want to use, you will need to replace the content of src/gesimPrimaryGeneratorAction.cc with the content of
         - gesimPrimaryGeneratorAction.cc_no_outer_W_remote for simulations of AmBe source without the outer tungsten capsule in remote position at GeIII,
@@ -24,7 +24,8 @@ source /usr/local/geant4.10.04.p02/share/Geant4-10.4.2/geant4make/geant4make.sh
         - LZAmBe2Remote for simulations of AmBe source without the outer tungsten capsule in remote position at GeIII,
         - LZAmBe2inOuterWCapsuleRemote for simulations of AmBe source in the outer tungsten capsule in remote position at GeIII,
         - LZAmBe2inOuterWCapsuleEndcap for simulations of AmBe source in the outer tungsten capsule centered on the endcap face of GeIII.
-    - when you need to switch between geometries, change generated gamma energy in gesimPrimaryGeneratorAction.cc etc, you will need to re-make by running "make clean" and then "make"
+    - energy of primary gammas can be changed in src/gesimPrimaryGeneratorAction.cc
+    - when you need to switch between geometries, or change generated gamma energy in gesimPrimaryGeneratorAction.cc etc, you will need to re-make by running "make clean" and then "make"
     - if you log out, make sure that steps 2 and 5 are execured before rtrying to run simulations again
 7. The output root file containing energy distributions of primary and detected gammas will be generated within the same folder (the name is set in AmBe.mac). 
 8. If you didn't comment out the visualization options in AmBe.mac, it will generate .wrl file in the same folder. 
