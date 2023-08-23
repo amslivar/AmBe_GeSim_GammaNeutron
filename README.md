@@ -1,6 +1,6 @@
 # AmBe_GeSim
 
-AmBe simulations in UA's GeIII detector based on GeSim code by Raymond Tsang. Read https://github.com/rhmtsang/GeSim/blob/master/README.md for more information about GeSim. 
+AmBe simulations for detection efficiency estimation in UA's GeIII detector based on GeSim code by Raymond Tsang. Read https://github.com/rhmtsang/GeSim/blob/master/README.md for more information about GeSim. 
 
 Prerequisite: Geant 4.10.04.p02 and ROOT 5.34/07 (later versions are ok)
 
