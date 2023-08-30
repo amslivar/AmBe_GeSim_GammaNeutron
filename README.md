@@ -20,6 +20,7 @@ source /usr/local/geant4.10.04.p02/share/Geant4-10.4.2/geant4make/geant4make.sh
         - gesimPrimaryGeneratorAction.cc_no_outer_W_remote for simulations of AmBe source without the outer tungsten capsule in remote position at GeIII,
         - gesimPrimaryGeneratorAction.cc_with_outer_W_remote for simulations of AmBe source in the outer tungsten capsule in remote position at GeIII,
         - gesimPrimaryGeneratorAction.cc_with_outer_W_on_endcap for simulations of AmBe source in the outer tungsten capsule centered on the endcap face of GeIII
+      
       and indicate the correct geometry name in the "AmBe.mac" file in "/gesim/source/setSourcePosition": 
         - LZAmBe2Remote for simulations of AmBe source without the outer tungsten capsule in remote position at GeIII,
         - LZAmBe2inOuterWCapsuleRemote for simulations of AmBe source in the outer tungsten capsule in remote position at GeIII,
