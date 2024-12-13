@@ -65,7 +65,7 @@ void gesimPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
    float wCapsBaseHeight = 16*unit;
    float wCapsBaseBottomHeight = 9*unit;
    float wCapsBaseBoreHeight = 7.62*unit;
-   float wCapsBaseBoreOffset = wCapsBaseOuterDia/2 - 5*unit;
+   float wCapsBaseBoreOffset = 0*unit;
 
    static const G4double inch = 2.54*cm;
    float fEndCapLength = 159.0*mm;
@@ -86,10 +86,12 @@ void gesimPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
    G4ParticleDefinition *gammaParticle = G4ParticleTable::GetParticleTable()->FindParticle("gamma");
 
+    //G4ParticleDefinition *neutronParticle = G4ParticleTable::GetParticleTable()->FindParticle("neutron");
 
     CLHEP::HepRandom::setTheEngine(new CLHEP::MTwistEngine);
     CLHEP::HepRandom::setTheSeed((unsigned)clock());
 
+    //fParticleGun->SetParticleDefinition(neutronParticle);
     fParticleGun->SetParticleDefinition(gammaParticle);
 
 
@@ -97,7 +99,8 @@ void gesimPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     auto sourcePV  = gesimDetector->GetSrcCorePV();
     auto sourceLV = sourcePV->GetLogicalVolume();
     auto sourceS = sourceLV->GetSolid();
-    auto srcCtrInCvtyCord =  G4ThreeVector(endCapFace+0.5*wCapsBaseOuterDia,0*CLHEP::mm,-0.5*wCapsCapHeight);;
+    //auto srcCtrInCvtyCord =  G4ThreeVector(endCapFace+0.5*wCapsBaseOuterDia,0*CLHEP::mm,-0.5*wCapsCapHeight);;
+    auto srcCtrInCvtyCord =  G4ThreeVector(endCapFace+0.5*wCapsBaseOuterDia,0*CLHEP::mm,-0.5*wCapsCapHeight);
    
 
     auto source = (G4Tubs*)sourceS;
@@ -121,11 +124,10 @@ void gesimPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     auto dirR = sqrt(1.-dirZ*dirZ);
     auto dirX = dirR*std::cos(beta);
     auto dirY = dirR*std::sin(beta); 
-    float aEnergy = 662.4; 
+    float aEnergy = 300.; 
     fParticleGun->SetParticleEnergy(aEnergy*keV);
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(dirX,dirY,dirZ));
     fParticleGun->GeneratePrimaryVertex(anEvent);
+    //fParticleGun->SetVerboseLevel(1);
+
 }
-
-
-

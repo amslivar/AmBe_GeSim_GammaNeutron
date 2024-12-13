@@ -4613,7 +4613,7 @@ G4VPhysicalVolume* gesimDetectorConstruction::Construct()
    float wCapsBaseBottomHeight = 9*unit;
    float wCapsBaseBoreHeight = 7.62*unit;
    float wCapsBaseBoreDia = 2.06*unit;
-   float wCapsBaseBoreOffset = wCapsBaseOuterDia/2 - 5*unit;
+   float wCapsBaseBoreOffset = wCapsBaseOuterDia/2 - 0*unit;
 
 
 
@@ -4804,7 +4804,7 @@ G4VPhysicalVolume* gesimDetectorConstruction::Construct()
    float wCapsBaseBottomHeight = 9*unit;
    float wCapsBaseBoreHeight = 7.62*unit;
    float wCapsBaseBoreDia = 2.06*unit;
-   float wCapsBaseBoreOffset = wCapsBaseOuterDia/2 - 5*unit;
+   float wCapsBaseBoreOffset = 0*unit;
 
 
 
