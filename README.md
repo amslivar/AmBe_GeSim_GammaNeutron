@@ -25,6 +25,16 @@ source /usr/local/geant4.10.04.p02/share/Geant4-10.4.2/geant4make/geant4make.sh
         - gesimPrimaryGeneratorAction.cc_with_outer_W_on_endcap for simulations of AmBe source in the outer tungsten capsule centered on the endcap face of GeIII
         - gesimPrimaryGeneratorAction.cc_oneE for only one energy peak 
         - gesimPrimaryGeneratorAction.cc for a spectrum of energies, created from step 6 in AmBe_emergent_gammas 
+        - gesimPrimaryGeneratorAction.cc_neutronsandgammas considers the different neutron spectras, the 4.4 MeV gamma, and the Am-241 gammas
+          -  If using this version, you need to first create the events usingPrepare an HEPEvt format generator file for AmBe gamma spectrum (from the  `particle.spectrum` under the data folder) which will be read by gesimPrimaryGeneratorAction: 
+            - make an executable of energyspectrum.cc, e.g. run
+            ```bash
+            g++ energyspectrum.cc -o energyspectrum.exe
+            ```
+            - run the executable with the number of events to be generated and the output file name "generator.data", e.g.
+            ```bash
+            ./energyspectrum.exe 10000000 > generator.data
+            ```   
       
       and indicate the correct geometry name in the "AmBe.mac" file in "/gesim/source/setSourcePosition": 
         - LZAmBe2Remote for simulations of AmBe source without the outer tungsten capsule in remote position at GeIII,
