@@ -2,8 +2,12 @@
 #define gesimPrimaryGeneratorAction_h 1
 
 #include "G4VUserPrimaryGeneratorAction.hh"
+#include "G4ParticleGun.hh"
+#include "G4Event.hh"
+#include "G4VPrimaryGenerator.hh" // Include the header for G4VPrimaryGenerator
 #include <vector>
 #include <string>
+
 class G4ParticleGun;
 //class G4GeneralParticleSource;
 class G4Event;
@@ -29,6 +33,12 @@ private:
   //G4GeneralParticleSource* fParticleGun;
   G4ParticleGun* fParticleGun;
   gesimDetectorConstruction*    gesimDetector;
+
+    G4VPrimaryGenerator* HEPEvt_n0;
+    G4VPrimaryGenerator* HEPEvt_n1;
+    G4VPrimaryGenerator* HEPEvt_n2;
+    G4VPrimaryGenerator* HEPEvt_4438gamma;
+    G4VPrimaryGenerator* HEPEvt_Am;
   
 };
 

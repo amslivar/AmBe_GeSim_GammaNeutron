@@ -3,6 +3,7 @@
 
 ### This script reads the energies and probabilities list form different files and creates a new file 
 ### with the energies and probabilities in the format required by Geant4 under the AmBe_emergent_gammas/am241.cc script 
+### the script is now also under energyspectrum.cc 
 
 
 
@@ -23,12 +24,16 @@ output_file = sys.argv[3]
 
 # Read the energies and probabilities from the files
 energies = np.loadtxt(energies_file)
-probabilities = np.loadtxt(probabilities_file)
+cumulativeprobabilities = np.loadtxt(probabilities_file)
 
 # Create the new file in the format energy probability eg "921.5	1.9E-07"
 
 with open(output_file, 'w') as f:
     for i in range(len(energies)):
+        if i == 0:
+            probabilities = cumulativeprobabilities
+        else:
+            probabilities = cumulativeprobabilities - cumulativeprobabilities[i-1]
         f.write('{} {}\n'.format(energies[i], probabilities[i]))
         
 print('The file {} has been created'.format(output_file))

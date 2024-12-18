@@ -22,11 +22,11 @@
 /process/em/auger true
 
 
-/histo/fileName /mnt/raid5/users/amslivar/AmBe_work/AmBe_v2/GeSimROOTfiles/AmBe_gammas_300keV_100evts # output root file name
+/histo/fileName /mnt/raid5/users/amslivar/AmBe_work/AmBe_v2/GeSimROOTfiles/AmBe_n012_gammas_1mievts # output root file name
 #BEGIN seed
 /random/setSeeds 9097
 #END seed
 
 
-/run/beamOn 100
+/run/beamOn 1000000
 
